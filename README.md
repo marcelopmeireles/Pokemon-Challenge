@@ -6,3 +6,4 @@ Pokemon World
 * Pending Parse Login activation
 * Pending Parse data storaging
 * Pending testing coverage
+* Fixing compatibilities between Lazy Loading and Collection-Repeat
