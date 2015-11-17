@@ -1,0 +1,31 @@
+<ion-view class="main-bg" title="Pokemon World" ng-controller="mainCtrl as vm">
+    <ion-content class="search-content" padding="true" has-header="true" scroll="false">
+        <form class="search">
+            <label class="item item-input" name="search">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="search" ng-model="fields.search" ng-model-options="{ getterSetter: true }">
+            </label>
+        </form>
+    </ion-content>
+    <ion-content class="list-content">
+        <ion-list>
+            <form class="list">
+                    
+                    <ion-item ng-repeat="pokemon in vm.pokemon | filter: fields.search"
+                              class="item item-avatar row"
+                              ng-click="vm.choosePokemon({{$index}})">
+
+                        <img class="col col-center"
+                             ng-src="{{ pokemon.sprite }}"
+                             ng-class="{'template': pokemon.sprite == template}">
+                        <div class="col col-75 col-center name">
+                            <h2>{{pokemon.name | uppercase}}</h2>
+                        </div>
+                        <i class="icon ion-chevron-right icon-accessory col col-10 col-center"></i>
+
+                    </ion-item>
+                </div>
+            </form>
+        </ion-list>
+    </ion-content>
+</ion-view>

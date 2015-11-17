@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <style>
+      .angular-google-map-container {
+          width: 100%;
+          height: 504px;
+      }
+    </style>
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/parse/parse.js"></script>
+    <script src="lib/lodash/lodash.js"></script>
+    <script src="lib/angular-cache/dist/angular-cache.js"></script>
+    <script src="lib/angular-mocks/angular-mocks.js"></script>
+
+    <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.css" rel="stylesheet">
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <script src="js/app.js"></script>
+    <script src="js/routes.js"></script>
+    <script src="js/services/pokedexApiService.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/forgotController.js"></script>
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/controllers/detailController.js"></script>
+
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7">
+  <div>
+    <div>
+        <ion-nav-bar class="bar-energized background-bar">
+            <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
+            <ion-nav-buttons side="right" ng-if="!!user.username">
+              <button class="button button-icon icon ion-log-out" ng-click="logout()"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+    </div>
+</div>
+  </body>
+</html>

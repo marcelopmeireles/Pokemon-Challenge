@@ -1,0 +1,202 @@
+$background: rgb(115,111,116);
+$background-footer: rgba(115,111,116,.8);
+$background-bar: rgb(228,153,37);
+$red-color: rgb(188,75,0);
+$blue-color: rgb(122,136,175);
+$gray-color: rgb(115,111,116);
+
+@mixin linear-gradient($beginning, $end) {
+	background: $beginning;
+	background: -moz-linear-gradient(top, $beginning 0%, #f6f6f6 47%, #ededed 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, $beginning), color-stop(47%, #f6f6f6), color-stop(100%, #ededed));
+	background: -webkit-linear-gradient(top, $beginning 0%, #f6f6f6 47%, #ededed 100%);
+	background: -o-linear-gradient(top, $beginning 0%, #f6f6f6 47%, #ededed 100%);
+	background: -ms-linear-gradient(top, $beginning 0%, #f6f6f6 47%, #ededed 100%);
+	background: linear-gradient(to bottom, $beginning 0%, #f6f6f6 47%, #ededed 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$beginning', endColorstr='#ededed', GradientType=0 );
+}
+
+ion-content.search-content {
+	z-index: 200;
+	height: 68px;
+	background: $background-footer;	
+}
+
+ion-content.list-content {
+	margin-top: 66px;
+}
+
+.name > h2 {
+	color: $red-color;
+}
+
+.detail, .main-bg {
+	background: $background;
+}
+
+.background-bar {
+	background-color: $background-bar!important;
+	& * {
+		color: white!important;
+	}
+}
+
+.detail-template {
+	width: 50%;
+}
+
+
+.list.card {
+	background-image: url('/images/solarburst.jpg');
+	background-position: center center;
+	background-repeat: no-repeat;
+	box-sizing: contain;
+	-webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,.5);
+	-moz-box-shadow: 0px 0px 15px 5px rgba(0,0,0,.5);
+	box-shadow: 0px 0px 15px 5px rgba(0,0,0,.5);
+	min-height: 280px;
+	position: relative;
+}
+	
+.item {
+	
+	color: $red-color;
+
+	&.item-avatar {
+		@include linear-gradient(#FFFFFF, #F6F6F6);
+	}
+
+	&.item-body {
+		background-color: transparent;
+		border: none;
+		text-align: center;
+	}
+
+	&.item-divider {
+
+		&.item-footer {
+			position: absolute;
+			width: 100%;
+			min-height: 240px;
+			/*filter: blur(20px);
+			-webkit-filter: blur(20px);*/
+			-webkit-transition: top linear 0.5s;
+			transition: top linear 0.5s;
+			background-color: $background-footer;
+
+			& * {
+				color: white;
+			}
+
+			&.down {
+				top: 212px;
+			}
+
+			&.up {
+				top: 52px;
+			}
+
+			&:after {
+				content: '';
+				position: absolute;
+			    width: 20%;
+			    height: 6px;
+			    border-radius: 2px;
+			    background-color: white;
+			    z-index: 200;
+			    top: 2px;
+			    left: -10%;
+			    margin-left: 50%;
+			}
+
+			hr {
+				background: rgba(255,255,255,.4);
+				border: none;
+    			height: 1px;
+			}
+		}
+	}
+
+	&.item-avatar {
+		&.row {
+			padding-top: 8px;
+			margin-top: 0;
+
+			& img {
+				position: relative;
+				top: 0;
+				left: 0;
+				border: none 0 transparent;
+				border-radius: 0;
+				height: 40px;
+				width: 40px;
+
+				&.template {
+					opacity: 0.2;
+				}
+			}
+		}
+	}
+}
+
+.item > p {
+	white-space: normal;
+}
+
+.badge-egg {
+	position: absolute!important;
+	top: -4px!important;
+	right: -8px!important;
+	width: 14px;
+	height: 14px;
+	padding: 0 10%;
+	font-size: 9px;
+	text-align: center;
+	background-color: gray;
+	color: white;
+}
+
+.alphabetic-divider {
+	height: 92px!important;
+}
+
+.image-loader-container {
+  width: 40px;
+  height: 40px;
+  top: 23px;
+  left: 11px;
+  position: absolute;
+  background-color: transparent;
+  
+  /*display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;*/
+}
+
+h4.title {
+	background-color: $red-color;
+	color: white;
+	padding: 8px;
+	margin: 0;
+}
+
+.list { 
+	&.item.item-accordion {
+	  line-height: 38px;
+	  padding-top: 0;
+	  padding-bottom: 0;
+	  transition: 0.09s all linear;
+
+		&.ng-hide {
+		  line-height: 0px;
+		}
+
+		&.ng-hide-add,
+		&.ng-hide-remove {
+		  display: block !important;
+		}
+	}
+}

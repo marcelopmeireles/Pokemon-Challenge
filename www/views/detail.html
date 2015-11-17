@@ -1,0 +1,102 @@
+<ion-view class="detail" title="{{vm.pokemon.name | uppercase}}">
+    <ion-content padding="true" class="has-header">
+
+        <div class="list card">
+
+		  <div class="item item-divider row">
+		    <div class="col col-50">
+		    	<h4>Attack</h4>
+		    	<h3 style="margin:0; padding:0">
+		    		<i class="icon ion-flash"></i>
+		    		{{vm.pokemon.attack}}/{{vm.pokemon.sp_atk}}
+		    	</h3>
+		    </div>
+		    <div class="col col-50">
+		    	<h4>Defense</h4>
+		    	<h3 style="margin:0; padding:0">
+		    		<i class="icon ion-flash-off"></i> {{vm.pokemon.defense}}/{{vm.pokemon.sp_def}}
+		    	</h3>
+			</div>
+			<button class="button button-small right" style="float: right; right: 5px; position: absolute;">
+    			<i class="icon ion-egg"></i>
+    			<span class="badge badge-egg" ng-if="vm.pokemon.egg_cycles.lenght == 0">
+    				{{vm.pokemon.egg_cycles}}
+    			</span>
+    		</button>
+		  </div>
+
+		  <div class="item item-body">
+		  	<img ng-src="{{ vm.pokemon.sprites }}" ng-class="{'detail-template':vm.pokemon.sprites == template}">
+		  </div>
+
+          <div class="item item-divider item-footer" ng-init="clicked = false" ng-click="clicked = !clicked" ng-class="{'up': clicked, 'down': !clicked}">
+		    <h3>Stats</h3>
+		    <div class="col col-33 inline"><h3>HP {{vm.pokemon.hp}}</h3></div>
+		    <div class="col col-33 inline"><h3>XP {{vm.pokemon.exp}}</h3></div>
+		    <div class="col col-33 inline"><h3><i class="icon ion-speedometer"></i> {{vm.pokemon.speed}}</h3></div>
+		    
+		    <hr>
+		    <div class="col col-33 inline"><h4><i class="icon ion-arrow-resize"></i> {{vm.pokemon.height}} ft.</h4></div>
+		    <div class="col col-33 inline"><h4><i class="icon ion-bag"></i> {{vm.pokemon.weight}} p.</h4></div>
+		    
+		    <div class="col col-33 inline"><h4><i class="icon ion-android-happy"></i> {{vm.pokemon.happiness}}</h4></div>
+		    
+		    <hr>
+		    <div class="col col-33 inline"><h3><i class="icon ion-social-instagram"></i> {{vm.pokemon.catch_rate}}</h3></div>
+		    
+		    <div class="col col-33 inline">
+		    	<h3 ng-if="vm.pokemon.evolutions.length !== 0">
+		    		<i class="icon ion-fork-repo"></i> {{vm.pokemon.evolutions.length}}
+		    	</h3>
+		    </div>
+		    
+		    
+		    <div class="col col-33 inline">
+	    		<button class="button button-small"><i class="icon ion-egg"></i> Groups
+	    			<span class="badge badge-egg" ng-if="vm.pokemon.egg_groups.length != 0">
+	    				{{vm.pokemon.egg_groups.length}}
+	    			</span>
+	    		</button>		
+		    </div>
+
+		    <h4 style="border-bottom: 1px solid white">Abilities</h4>
+    		<div class="col col-50" ng-repeat="abilities in vm.pokemon.abilities"
+    			 ng-class-even="'inline'" ng-class="{'inline' : $index === 0}">
+    			<h4><i class="icon ion-wand"></i> {{abilities.name}}</h4>
+    		</div>
+		  </div>
+		</div>
+		<button class="button button-full" ng-click="openModal('History')">History</button>
+		<button class="button button-full" ng-click="openModal('Moves')">Moves</button>
+    </ion-content>
+</ion-view>
+
+<script id="my-modal.html" type="text/ng-template">
+  <ion-modal-view class="main-bg">
+    <ion-header-bar class="background-bar">
+      <h1 class="title">{{ vm.pokemon.name | uppercase }}</h1>
+      <div class="button button-clear" ng-click="modal.hide()"><span class="icon ion-close"></span></div>
+    </ion-header-bar>
+    <ion-content padding="true">
+    	<h4 class="title">{{ title | uppercase }}</h4>
+      <ion-list>   
+        <ion-item class="item" ng-if="title == 'History'">
+            <p ng-repeat="item in vm.category track by item">{{ item }}</p>
+        </ion-item>
+
+        <div ng-repeat="item in vm.category track by item.name" ng-if="title == 'Moves'">
+	        <ion-item class="item item-stable row" ng-click="toggleGroup($index)" ng-class="{active: isGroupShown($index)}">
+	        	<h4 class="col col-50">
+	        		<i class="icon" ng-class="isGroupShown($index) ? 'ion-minus' : 'ion-plus'"></i>
+	        		{{ item.name }}
+	        	</h4>
+	        	<h5 class="col col-50" style="text-align: right">Accuracy: {{ item.accuracy }}</h5>
+	        </ion-item>
+	        <ion-item class="item-accordion" ng-show="isGroupShown($index)">
+	        	<p>{{ item.description }}</p>
+	        </ion-item>
+	    </div>
+      </ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>

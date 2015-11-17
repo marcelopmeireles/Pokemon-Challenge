@@ -1,0 +1,11 @@
+.item {
+	& .item-divider {
+		& .item-footer {
+			&:after {
+				width: 20%;
+				height: 6px;
+				border-radius: 50%;
+			}
+		}
+	}	
+}

@@ -1,0 +1,16 @@
+{
+  "name": "PokemonWorld",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.1.0",
+    "angular-cache": "~4.4.2",
+    "angular-mocks": "~1.4.7"
+  },
+  "dependencies": {
+    "lodash": "~3.10.1",
+    "font-awesome": "fontawesome#~4.4.0",
+    "ionic-toast": "~0.2.0",
+    "ionic-material": "~0.4.2",
+    "ionic-image-lazy-load": "ion-image-lazy-load#*"
+  }
+}
