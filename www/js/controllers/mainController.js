@@ -40,8 +40,6 @@
                     };
                 });
             });
-
-            // console.log(vm.pokemon);
         });
         
         vm.choosePokemon = function(index) {

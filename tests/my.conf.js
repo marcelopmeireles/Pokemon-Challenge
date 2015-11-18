@@ -21,8 +21,6 @@ module.exports = function(config) {
         '../www/lib/angular-cache/dist/angular-cache.js',
         '../www/lib/angular-mocks/angular-mocks.js',
         '../www/js/*.js',
-        '../www/js/app.js',
-        '../www/js/controllers/loginController.js',
         '../tests/**/*Spec.js'
     ],
 

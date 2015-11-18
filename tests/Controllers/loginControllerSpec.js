@@ -19,8 +19,8 @@ describe('loginCtrl', function () {
 			username: null,
 			password: null
 		};
-		expect(scope.user.username).toBe(null);
-		expect(scope.user.password).toBe(null);
+		expect(scope.user.username).toBeNull();
+		expect(scope.user.password).toBeNull();
 	});
 
 	it('should be logged in', inject(function($state) {
