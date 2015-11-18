@@ -18,16 +18,12 @@ module.exports = function(config) {
         '../www/lib/ionic/js/ionic.bundle.js',
         '../www/lib/parse/parse.min.js',
         '../www/lib/lodash/lodash.min.js',
-        '../www/lib/angular-cache/dist/angular-cache.min.js',
-        '../www/lib/angular-animate/angular-animate.js',
         '../www/lib/angular-cache/dist/angular-cache.js',
         '../www/lib/angular-mocks/angular-mocks.js',
-        '../www/lib/angular-sanitize/angular-sanitize.js',
-        '../www/lib/angular-ui-router/release/angular-ui-router.js',
-        '../www/lib/ionic/js/*.js',
-        '../www/lib/ionic-toast/src/ionic-toast.js',
-        // '../www/lib/waves/src/js/waves.js',
-        '**/*Spec.js'
+        '../www/js/*.js',
+        '../www/js/app.js',
+        '../www/js/controllers/loginController.js',
+        '../tests/**/*Spec.js'
     ],
 
 
